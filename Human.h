@@ -1,11 +1,11 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 #include <cstdlib>
 
 using namespace std;
 
-//Класс первого уровня - Человек
+//РљР»Р°СЃСЃ РїРµСЂРІРѕРіРѕ СѓСЂРѕРІРЅСЏ - Р§РµР»РѕРІРµРє
 class Human
 {
 protected:
@@ -25,8 +25,8 @@ public:
 	virtual void printInfo() = 0;
 };
 
-//Классы второго уровня
-//Взрослый
+//РљР»Р°СЃСЃС‹ РІС‚РѕСЂРѕРіРѕ СѓСЂРѕРІРЅСЏ
+//Р’Р·СЂРѕСЃР»С‹Р№
 class Adult :public Human {
 protected:
 	string occupation;
@@ -41,11 +41,11 @@ public:
 	virtual void setOccupation(string o) = 0;
 	virtual void getAverageIncome() = 0;
 	void printInfo() override {
-		cout << "Имя: " << name << ", возраст: " << age << ", пол: " << sex << ", род детельности: " << occupation << endl;
+		cout << "РРјСЏ: " << name << ", РІРѕР·СЂР°СЃС‚: " << age << ", РїРѕР»: " << sex << ", СЂРѕРґ РґРµС‚РµР»СЊРЅРѕСЃС‚Рё: " << occupation << endl;
 	}
 };
 
-//Ребенок
+//Р РµР±РµРЅРѕРє
 class Child :public Human {
 protected:
 	int numOfSocieties;
@@ -59,13 +59,13 @@ public:
 	virtual void setSex(string s) override { sex = s; }
 	virtual void getSumPrice() = 0;
 	virtual void printInfo() {
-		cout << "Имя: " << name << ", возраст: " << age << ", пол: " << sex << ", количество секций(кружков): " << numOfSocieties << endl;
+		cout << "РРјСЏ: " << name << ", РІРѕР·СЂР°СЃС‚: " << age << ", РїРѕР»: " << sex << ", РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєС†РёР№(РєСЂСѓР¶РєРѕРІ): " << numOfSocieties << endl;
 	}
 };
 
-//Конкретные классы 
+//РљРѕРЅРєСЂРµС‚РЅС‹Рµ РєР»Р°СЃСЃС‹ 
 
-//Работающий
+//Р Р°Р±РѕС‚Р°СЋС‰РёР№
 class Worker :public Adult {
 
 public:
@@ -76,11 +76,11 @@ public:
 	}
 	void getAverageIncome() override {
 		int a = rand() % 500;
-		cout << "Средний доход (зарплата) " << name << " составляет " << a << " долларов" << endl;
+		cout << "РЎСЂРµРґРЅРёР№ РґРѕС…РѕРґ (Р·Р°СЂРїР»Р°С‚Р°) " << name << " СЃРѕСЃС‚Р°РІР»СЏРµС‚ " << a << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
 	}
 };
 
-//Пенсионер
+//РџРµРЅСЃРёРѕРЅРµСЂ
 class Retiree :public Adult {
 public:
 	Retiree(int a, string n, string s, string o) : Adult(a, n, s, o) {}
@@ -90,29 +90,29 @@ public:
 	}
 	void getAverageIncome() {
 		int a = rand() % 250;
-		cout << "Средний доход (пенсия) " << name << " составляет " << a << " долларов" << endl;
+		cout << "РЎСЂРµРґРЅРёР№ РґРѕС…РѕРґ (РїРµРЅСЃРёСЏ) " << name << " СЃРѕСЃС‚Р°РІР»СЏРµС‚ " << a << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
 	}
 };
 
-//Дошкольник
+//Р”РѕС€РєРѕР»СЊРЅРёРє
 class Preschooler :public Child {
 public:
 	Preschooler(int a, string n, string s, int nos) : Child(a,n,s,nos){}
 	void getSumPrice() override {
 		int a = rand() % 30;
-		cout << "Средняя стоимость секции у " << name << " - " << a << " долларов" << endl;
-		cout << "Он(а) посещает " << numOfSocieties << " секций. Суммарная стоимость: " << a * numOfSocieties << " долларов" << endl;
+		cout << "РЎСЂРµРґРЅСЏСЏ СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРµРєС†РёРё Сѓ " << name << " - " << a << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
+		cout << "РћРЅ(Р°) РїРѕСЃРµС‰Р°РµС‚ " << numOfSocieties << " СЃРµРєС†РёР№. РЎСѓРјРјР°СЂРЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ: " << a * numOfSocieties << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
 	}
 };
 
-//Учащийся
+//РЈС‡Р°С‰РёР№СЃСЏ
 class Schoolchild :public Child {
 public:
 	Schoolchild(int a, string n, string s, int nos): Child(a,n,s,nos){}
 
 	void getSumPrice() override {
 		int a = rand() % 15;
-		cout << "Средняя стоимость секции у " << name << " - " << a << " долларов" << endl;
-		cout << "Он(а) посещает " << numOfSocieties << " секций. Суммарная стоимость: " << a * numOfSocieties << " долларов" << endl;
+		cout << "РЎСЂРµРґРЅСЏСЏ СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРµРєС†РёРё Сѓ " << name << " - " << a << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
+		cout << "РћРЅ(Р°) РїРѕСЃРµС‰Р°РµС‚ " << numOfSocieties << " СЃРµРєС†РёР№. РЎСѓРјРјР°СЂРЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ: " << a * numOfSocieties << " РґРѕР»Р»Р°СЂРѕРІ" << endl;
 	}
 };
